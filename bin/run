@@ -1,0 +1,3 @@
+require './lib/albums_by_artist.rb'
+
+CLI.new.run
