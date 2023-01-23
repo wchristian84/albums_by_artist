@@ -36,22 +36,25 @@ class CLI
         puts "Please enter a username."
         username = gets.chomp
         puts "Please enter a password."
+        password = gets.chomp
         puts "Sign up successful."
         User.new(username, password)
         puts "Logging in..."
-        login
+        User.authenticate_user(username, password)
     end
     
     def signup_or_login
         user_input = ""
-        puts "Do you wish to login or sign up?"
-        user_input = gets.chomp
-        if user_input == "login"
-            login
-            break;
-        elsif user_input == "sign up"
-            sign_up
-            break;
+        while user_input != "exit"
+            puts "Do you wish to login or sign up?"
+            user_input = gets.chomp
+            if user_input == "login"
+                login
+                break;
+            elsif user_input == "sign up"
+                sign_up
+                break;
+            end
         end
     end
 end
